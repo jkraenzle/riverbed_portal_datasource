@@ -1,0 +1,9 @@
+- object_id: "prometheus"
+  display_name: "Prometheus"
+  object_type_id: "job"
+# object_properties:
+# - id: "ip_address"
+#   value: "10.1.150.230"
+- object_id: "example-random"
+  display_name: "Random Example"
+  object_type_id: "job"

@@ -1,0 +1,3 @@
+topn_search: "prometheus.callbacks.topn_search"
+object_search: "prometheus.callbacks.object_search"
+time_series_data: "prometheus.callbacks.time_series_data"

@@ -1,0 +1,16 @@
+# Statistics are an array, or list, of key/value pairs
+- id : "raw"
+  display_name: "Raw"
+  is_global: True
+  is_default: True
+  is_rollup: False
+  is_primary: False
+  is_non_periodic: False
+  is_status_data: False
+  granularity_ids:
+  - "1m"
+  data_points_time_aligned: True
+  suggested_aggregation_rule:
+  - rule: "sum"
+  data_tags:
+  - "upper_critical"

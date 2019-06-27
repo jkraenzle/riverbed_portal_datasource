@@ -1,0 +1,15 @@
+- metric_id: "up"
+  unique_display_name: "Status"
+  unit: "%"
+  suggested_aggregation_rule:
+    - "avg"
+- metric_id: "go_goroutines"
+  unique_display_name: "Go Routines"
+  unit: "#"
+  suggested_aggregation_rule:
+    - "avg"
+- metric_id: "go_threads"
+  unique_display_name: "Go Threads"
+  unit: "#"
+  suggested_aggregation_rule:
+    - "avg"

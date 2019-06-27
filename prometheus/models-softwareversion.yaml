@@ -1,0 +1,6 @@
+data_source_type: Prometheus
+major_version: 1
+minor_version: 0
+display_string: Prometheus Data Adapter v1.0 rev 0 build 0
+revision_number: 0
+build_number: 1

@@ -1,0 +1,20 @@
+- id: "job"
+  display_name: "Job"
+  plural_display_name: "Jobs"
+  root_type: True
+  enumerable: False
+  applicable_metrics:
+  - "up"
+  - "go_goroutines"
+  - "go_threads"
+#  scopable_object_types:
+#  - object_type_id: ""
+#  - all_instances: True
+#  - filter_object_instances: True
+#  - top_n_wildcarding: False
+  has_free_text_search: True
+  has_ip_address_property: False
+  pre_cache_instances: True
+  include_parent_type_metrics: False
+  cache_duration: 7200
+  parent_type_metrics_interaction: False

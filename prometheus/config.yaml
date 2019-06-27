@@ -1,0 +1,4 @@
+proxy_hostname: 10.1.150.231
+proxy_port: 5000
+target_hostname: 10.1.150.230
+target_port: 9090

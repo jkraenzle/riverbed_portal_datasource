@@ -1,0 +1,10 @@
+flask==1.0.3
+flask_restful==0.3.7
+flask_script==2.0.6
+flask_migrate==2.5.2
+marshmallow==2.19.5
+flask_marshmallow==0.10.1
+marshmallow-sqlalchemy==0.16.4
+psycopg2==2.7.5
+pyyaml=5.1.0
+requests==2.22.0

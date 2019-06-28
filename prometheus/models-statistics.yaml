@@ -8,9 +8,9 @@
   is_non_periodic: False
   is_status_data: False
   granularity_ids:
-  - "1m"
+  - ""
   data_points_time_aligned: True
-  suggested_aggregation_rule:
-  - rule: "sum"
+  suggested_aggregation_rule: 
+  - "avg"
   data_tags:
   - "upper_critical"

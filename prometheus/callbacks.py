@@ -42,7 +42,9 @@ def topn_search (app, object_filters, metric_id, n_value, start_time, end_time, 
 
 
 def time_series_data (app, object_filters, metric_ids, statistic_id, request_id, suggested_summary_rule, start_time, end_time, step):
-    
+   
+    data_responses = []
+ 
     target_hostname = app.config ["systems"]["target_hostname"]
     target_port = app.config ["systems"]["target_port"]
 
@@ -59,5 +61,6 @@ def time_series_data (app, object_filters, metric_ids, statistic_id, request_id,
             data_points = list (map (lambda m: DataPoint (timestamp = m[0], value = m[1]), values))
             mv = MetricValue (metric_id = metric_id, statistic_id = statistic_id, data_points = data_points, summary_rule = suggested_summary_rule)
             data_response = DataResponse (data_request_id = request_id, metric_values = [mv, ])
+            data_responses.append (data_response)
 
-    return data_response
+    return data_responses

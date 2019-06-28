@@ -174,10 +174,11 @@ def create_app (softwareversion, metrics, objects, objecttypes, granularities, s
 
     @app.route('/portal-api/v1/preferences')
     def preferences ():
-        return jsonify (Preferences (update_object_cache_on_initial_sync = False,
+        return jsonify (Preferences (update_object_cache_on_initial_sync = True,
                                data_request_max_thread_count = 4,
                                data_request_batch_limit = 500,
                                heartbeat_request_interval_seconds = 60,
+                               always_request_recent_data = True
                                ))
 
     @app.route('/portal-api/v1/granularities')
@@ -238,7 +239,7 @@ def create_app (softwareversion, metrics, objects, objecttypes, granularities, s
                         display_name = s ["display_name"],
                         is_default = s ["is_default"],
                         is_primary = s ["is_primary"],
-                        suggested_aggregation_rule = dict(rule="avg"),
+                        suggested_aggregation_rule = None,
                         data_points_time_aligned = False))
                                
         return jsonify (stats)
@@ -269,7 +270,7 @@ def create_app (softwareversion, metrics, objects, objecttypes, granularities, s
         time_series_data_callback = get_function (app.config ["callbacks"]["time_series_data"])
 
         data_responses = []
-        suggested_summary_rule = SuggestedSummaryRule ("avg")
+        suggested_summary_rule = None
         start_time, end_time = start_end_times_from_request (request)
         granularity = granularity_from_request (request)
 
@@ -281,9 +282,9 @@ def create_app (softwareversion, metrics, objects, objecttypes, granularities, s
             ### for now, make an assumption here
             statistic_id = "raw"
 
-            data_response = time_series_data_callback (app, object_filters, metric_ids, statistic_id, request_id, suggested_summary_rule,
-                start_time, end_time, granularity)
-            data_responses.append (data_response)
+            data_responses_from_request = time_series_data_callback (app, object_filters, metric_ids, statistic_id, request_id, 
+                suggested_summary_rule, start_time, end_time, granularity)
+            data_responses.extend (data_responses_from_request)
 
         return jsonify (data_responses)
 

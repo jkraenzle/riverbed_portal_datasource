@@ -6,5 +6,5 @@ marshmallow==2.19.5
 flask_marshmallow==0.10.1
 marshmallow-sqlalchemy==0.16.4
 psycopg2==2.7.5
-pyyaml=5.1.0
+pyyaml>=5.4.4
 requests==2.22.0
